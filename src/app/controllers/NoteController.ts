@@ -44,9 +44,9 @@ export class NoteController {
 
 	public static async show(req: Request<{ id: string }>, res: Response) {
 		try {
-			const note = await Note.findById(Types.ObjectId(req.params.id));
+			const note = await Note.findOne({ _id: Types.ObjectId(req.params.id), user: req.user?._id });
 
-			if (!note || `${note.user}` !== `${req.user?._id}`) {
+			if (!note) {
 				return res.redirect("/notes");
 			}
 

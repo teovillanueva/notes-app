@@ -56,7 +56,9 @@ export class Server {
 			res.locals.error = req.flash("error");
 			res.locals.success = req.flash("success");
 			res.locals.isAuthenticated = req.isAuthenticated();
-			res.locals.user = req.user;
+			res.locals.auth = {
+				user: req.user
+			};
 			next();
 		});
 	}
