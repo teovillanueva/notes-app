@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"strict": true,
+		"esModuleInterop": true,
+		"baseUrl": "./src",
+		"paths": {
+			"@models/*": ["app/models/*"],
+			"@routes/*": ["routes/*"],
+			"@config/*": ["config/*"],
+			"@core/*": ["core/*"],
+			"@start/*": ["start/*"],
+			"@services/*": ["app/services/*"],
+			"@middlewares/*": ["app/middlewares/*"],
+			"@validators/*": ["app/validators/*"],
+			"@controllers/*": ["app/controllers/*"],
+			"@passport/*": ["config/passport/*"]
+		}
+	}
+}

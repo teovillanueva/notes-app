@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light bg-light">
+	<a href="/notes" class="navbar-brand">Notes</a>
+	<div class="ml-auto">
+		<% if (!isAuthenticated) { %>
+		<a class="btn btn-outline-primary" href="/auth/login" role="button"
+			>Login</a
+		>
+		<a class="btn btn-outline-primary" href="/auth/register" role="button"
+			>Register</a
+		>
+		<% } else { %>
+		<a class="btn btn-outline-primary" href="/notes/create" role="button"
+			>Add note</a
+		>
+		<a class="btn btn-outline-primary" href="/auth/logout" role="button"
+			>Logout</a
+		>
+		<% }%>
+	</div>
+</nav>

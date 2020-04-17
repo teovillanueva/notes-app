@@ -1,0 +1,9 @@
+<div class="container mt-5">
+	<h1>
+		<%= note.title %>
+	</h1>
+	<p><%= note.text %></p>
+	<form action="/notes/<%= note.id %>?_method=DELETE" method="POST">
+		<button class="btn btn-danger" type="submit">Delete note</button>
+	</form>
+</div>
