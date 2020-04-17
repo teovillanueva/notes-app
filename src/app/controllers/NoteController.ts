@@ -13,7 +13,7 @@ interface IStoreNoteBody {
 
 export class NoteController {
 	public static async index(req: Request, res: Response) {
-		const notes = await Note.find({ user: req.user._id });
+		const notes = await Note.find({ user: req.user?._id });
 
 		return res.render("notes/index", { notes });
 	}
@@ -34,7 +34,7 @@ export class NoteController {
 		const note = new Note({
 			title: data.title,
 			text: data.text,
-			user: req.user._id,
+			user: req.user?._id
 		});
 
 		await note.save();
@@ -46,7 +46,7 @@ export class NoteController {
 		try {
 			const note = await Note.findById(Types.ObjectId(req.params.id));
 
-			if (!note || `${note.user}` !== `${req.user._id}`) {
+			if (!note || `${note.user}` !== `${req.user?._id}`) {
 				return res.redirect("/notes");
 			}
 
