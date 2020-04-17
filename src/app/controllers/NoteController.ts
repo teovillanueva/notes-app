@@ -52,7 +52,7 @@ export class NoteController {
 
 			return res.render("notes/show", { note });
 		} catch (error) {
-			return res.redirect("notes");
+			return res.redirect("/notes");
 		}
 	}
 

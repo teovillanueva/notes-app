@@ -7,3 +7,5 @@ export const router = Router();
 
 router.use("/auth", auth);
 router.use("/notes", notes);
+
+router.get("*", (req, res) => res.redirect("/auth/login"));
