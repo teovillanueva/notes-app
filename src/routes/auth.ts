@@ -2,13 +2,14 @@ import { Router } from "express";
 
 import { AuthController } from "@controllers/AuthController";
 import { RegisterValidator } from "@validators/RegisterValidator";
+import { GuestMiddleware } from "@middlewares/GuestMiddleware";
 
 export const auth = Router();
 
-auth.get("/login", (req, res) => res.render("auth/login.ejs"));
+auth.get("/login", GuestMiddleware, (req, res) => res.render("auth/login.ejs"));
 auth.post("/login", AuthController.login);
 
-auth.get("/register", (req, res) => res.render("auth/register.ejs"));
+auth.get("/register", GuestMiddleware, (req, res) => res.render("auth/register.ejs"));
 auth.post("/register", RegisterValidator, AuthController.register);
 
 auth.get("/logout", AuthController.logout);
